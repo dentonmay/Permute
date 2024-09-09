@@ -1,0 +1,30 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <title>Permute</title>
+</head>
+ <body>
+<script>
+    
+    function permute(string) {
+        let len = string.length;
+        if (len === 1) return string;
+        let pick = "";
+        let permutations = [];
+        for(let i = 0; i < len; i++) {
+         pick = string[i];
+         var remainder = string.slice(0, i) + string.slice(i + 1, len);
+        for(var perm of permute(remainder)) {
+            permutations.push(pick + perm);
+        }
+         }
+         return permutations;
+        }
+        const string = "123456789";
+         console.log(JSON.stringify(permute(string)));
+        
+    
+</script>
+
+ </body>
+</html>
